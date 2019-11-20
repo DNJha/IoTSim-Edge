@@ -1,0 +1,163 @@
+{
+	"trace_flag": false,
+	"numUser": 1,
+	"ioTDeviceEntities": [
+		{
+			"mobilityEntity": {
+				"movable": false,
+				"location": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+			"volecity": 0.5,
+			"range":{	
+				"beginX": 0.00,
+				"endX":100.00
+				},
+			"signalRange":25
+			},
+			"assignmentId": 1,
+			"ioTClassName": "org.edge.core.iot.TemperatureSensor",
+			"iotType": "building",
+			"name": "building",
+			"data_frequency": 1.0,
+			"dataGenerationTime": 1.0,
+			"complexityOfDataPackage": 1,
+			"networkModelEntity": {
+				"networkType": "bluetooth",
+				"communicationProtocol": "xmpp"
+			},
+			"max_battery_capacity": 100.0,
+			"battery_drainage_rate": 1.0,
+			"processingAbility": 1.0,
+			"numberofEntity": 50
+		}
+	],
+	"MELEntities": [
+		{
+			"vmid": 1,
+			"mips": 10000,
+			"size": 2048,
+			"ram": 10000,
+			"bw": 10000,
+			"pesNumber": 1,
+			"vmm": "xxx",
+			"cloudletSchedulerClassName": "org.cloudbus.cloudsim.CloudletSchedulerTimeShared",
+			"type": "filtering",
+			"datasizeShrinkFactor": 0.8,
+			"edgeOperationClass": "org.edge.core.feature.operation.FilterOperation",
+			"MELTopology": {
+				"downLinkIds": []
+			}
+		},
+		{
+			"vmid": 2,
+			"mips": 10000,
+			"size": 2048,
+			"ram": 10000,
+			"bw": 10000,
+			"pesNumber": 1,
+			"vmm": "xxx",
+			"cloudletSchedulerClassName": "org.cloudbus.cloudsim.CloudletSchedulerTimeShared",
+			"type": "filtering",
+			"datasizeShrinkFactor": 0.8,
+			"edgeOperationClass": "org.edge.core.feature.operation.FilterOperation",
+			"MELTopology": {
+				"upLinkId": 1,
+				"downLinkIds": []
+			}
+		
+		}
+		
+		
+		
+	],
+	"broker": {
+		"name": "default"
+	},
+	"edgeDatacenter": [
+		{
+			"name": "edgeDatacenter1",
+			"characteristics": {
+				"architecture": "x86",
+				"os": "Linux",
+				"vmm": "Xen",
+				"hostListEntities": [
+					{
+						"id": 1,
+						"ramProvisioner": {
+							"className": "org.cloudbus.cloudsim.provisioners.RamProvisionerSimple",
+							"ramSize": 10000
+						},
+						"bwProvisioner": {
+							"className": "org.cloudbus.cloudsim.provisioners.BwProvisionerSimple",
+							"bwSize": 10000
+						},
+						"storage": 10000,
+						"peEntities": [
+							{
+								"id": 1,
+								"peProvisionerClassName": "org.cloudbus.cloudsim.provisioners.PeProvisionerSimple",
+								"mips": 10000
+							}
+						],
+						"vmScheduler": {
+							"className": "org.cloudbus.cloudsim.VmSchedulerTimeShared"
+						},
+						"edgeType": "RASPBERRY_PI",
+						"geo_location": {
+							"movable": false,
+							"volecity": 0.0,
+							"signalRange": 25.0,
+							"location": {
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0
+							}
+						},
+						"networkModel": {
+							"networkType": "bluetooth",
+							"communicationProtocol": "xmpp"
+						},
+						"max_IoTDevice_capacity": 10000,
+						"max_battery_capacity": 2000000.0,
+						"battery_drainage_rate": 1,
+						"current_battery_capacity": 2000000.0
+					}
+					
+				],
+				"cost": 1.0,
+				"timeZone": 10.0,
+				"costPerSec": 0.0,
+				"costPerMem": 0.05,
+				"costPerStorage": 0.001,
+				"costPerBw": 0.0,
+				"communicationProtocolSupported": [
+					"xmpp"
+				],
+				"ioTDeviceClassNameSupported": [
+					"org.edge.core.iot.TemperatureSensor",
+					"org.edge.core.iot.LightSensor",
+					"org.edge.core.iot.CarSensor"
+				]
+			},
+			"vmAllocationPolicy": {
+				"className": "org.cloudbus.cloudsim.VmAllocationPolicySimple"
+			},
+			"schedulingInterval": 1.0
+		}
+	],
+	"connections": [
+		{
+			"vmId": 1,
+			"assigmentIoTId": 1
+		}
+	],
+	"logEntity": {
+		"logLevel": "debug",
+		"saveLogToFile": "true",
+		"logFilePath": "Building1.txt",
+		"append": true
+	}
+}
