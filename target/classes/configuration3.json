@@ -18,7 +18,7 @@
 			"signalRange":25
 			},
 			"assignmentId": 1,
-			"ioTClassName": "org.edge.core.iot.TemperatureSensor",
+			"ioTClassName": "org.edge.core.iot.CarSensor",
 			"iotType": "car",
 			"name": "car",
 			"data_frequency": 1.0,
